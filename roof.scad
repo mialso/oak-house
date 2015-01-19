@@ -66,7 +66,7 @@ module garageRoof(thick,start,out,height) {
 }
 
 module highRoof(thick,start,out,height,sizeX,sizeY) {
-	/**/translate([start[1]+sizeY/2-out,start[0]+sizeX/2-out,0]) rotate([0,0,90]) roof(thick,[-sizeY/2,-sizeX/2,start[2]],out,height,sizeY,sizeX);
+	/**/translate([start[0]+sizeX/2,start[1]+sizeY/2]) rotate([0,0,90]) roof(thick,[-sizeY/2,-sizeX/2,start[2]],out,height,sizeY,sizeX);
 }
 
 roof(2,[-50,-60,0],5,25,100,40);
