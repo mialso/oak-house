@@ -22,7 +22,7 @@ module ugPerimeter() {
 //linear_extrude(height = 15) ugPerimeter();
 module lev0Plate(h) {
 	color([0.5,0.5,0.5]) scale([0.01,0.01,0.01]) linear_extrude(height = h)
-	   import (file = "perimeter.dxf", layer = "lev0Floor");
+	   import (file = "floor01.dxf", layer = "plate0");
 }
 
 module lev0Wall(h) {
@@ -31,9 +31,9 @@ module lev0Wall(h) {
 			translate([0,0,200])
 				difference() {
 					linear_extrude(height = h, convexity = 3 )
-						import (file = "perimeter.dxf", layer = "lev0Wall");
+						import (file = "floor01.dxf", layer = "walls0");
 					linear_extrude(height = h-300, convexity = 3)
-						import (file = "perimeter.dxf", layer = "lev0Doors");
+						import (file = "floor01.dxf", layer = "doors0");
 				}
 }
 
@@ -42,7 +42,7 @@ module lev1Plate(h) {
 		scale([0.01,0.01,0.01])
 			translate([0,0,1000])   
 				linear_extrude(height = h)
-					import (file = "perimeter.dxf", layer = "lev1Floor");
+					import (file = "floor01.dxf", layer = "plate1");
 }
 
 module lev1Wall(h) {
@@ -51,11 +51,11 @@ module lev1Wall(h) {
 			translate([0,0,1200])
 				difference() {
 					linear_extrude(height = h, convexity = 3 )
-						import (file = "perimeter.dxf", layer = "lev1Wall");
+						import (file = "floor01.dxf", layer = "walls1");
 					translate([0,0,-10]) linear_extrude(height = h-300, convexity = 3 )
-						import (file = "perimeter.dxf", layer = "lev1Doors");
+						import (file = "floor01.dxf", layer = "doors1");
 					translate([0,0,1600]) linear_extrude(height = 1000, convexity = 3)
-						import (file = "perimeter.dxf", layer = "lev3Wind");
+						import (file = "floor01.dxf", layer = "windows1");
 				}
 }
 lev0Plate(200);
