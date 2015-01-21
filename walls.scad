@@ -58,10 +58,42 @@ module lev1Wall(h) {
 						import (file = "floor01.dxf", layer = "windows1");
 				}
 }
+module lev2Wall(h) {
+	color([0.5,1,1])
+		scale([0.01,0.01,0.01])
+			/*translate([0,0,2500])*/
+				difference() {
+					linear_extrude(height = h, convexity = 3 )
+						import (file = "floor02.dxf", layer = "walls2");
+					translate([0,0,-10]) linear_extrude(height = 2100, convexity = 3 )
+						import (file = "floor02.dxf", layer = "doors2");
+					translate([0,0,1000]) linear_extrude(height = 1500, convexity = 3)
+						import (file = "floor02.dxf", layer = "windows2");
+				}
+}
+
+module lev3Wall(h) {
+	color([0,0.5,1])
+		scale([0.01,0.01,0.01])
+			/*translate([0,0,2500])*/
+				difference() {
+					linear_extrude(height = h, convexity = 3 )
+						import (file = "floor02.dxf", layer = "walls3");
+					translate([0,0,-10]) linear_extrude(height = 2100, convexity = 3 )
+						import (file = "floor02.dxf", layer = "doors3");
+					translate([0,0,300]) linear_extrude(height = 2500, convexity = 3)
+						import (file = "floor02.dxf", layer = "windows3");
+				}
+}
+
 lev0Plate(200);
 lev0Wall(2300);
 lev1Plate(200);
 lev1Wall(2800);
+translate ([0,0,25]) lev0Plate(200);
+translate ([20,-10,27]) lev2Wall(2800);
+translate ([0,0,30]) lev1Plate(200);
+translate ([20,-10,42]) lev3Wall(3000);
 
 //scale([0.01,0.01,0.01]) linear_extrude(height = 3000)
    //import (file = "perimeter.dxf", layer = "mainEnter");
