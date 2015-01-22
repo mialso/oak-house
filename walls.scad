@@ -1,5 +1,6 @@
 include <constants.scad>
 use <roof.scad>
+use <tools.scad>
 
 module ugPerimeter() {
 	polygon(
@@ -22,7 +23,7 @@ module ugPerimeter() {
 
 //linear_extrude(height = 15) ugPerimeter();
 module lev0Plate(h) {
-	color([0.5,0.5,0.5]) scale([0.01,0.01,0.01]) linear_extrude(height = h)
+	color([0.5,0.5,0.5]) scale([0.01,0.01,0.01]) linear_extrude(height = h, convexity = 3 )
 	   import (file = "floor01.dxf", layer = "plate0");
 }
 
@@ -41,9 +42,8 @@ module lev0Wall(h) {
 module lev1Plate(h) {
 	color([0.5,0.5,0.9])
 		scale([0.01,0.01,0.01])
-			translate([0,0,1000])   
-				linear_extrude(height = h)
-					import (file = "floor01.dxf", layer = "plate1");
+			linear_extrude(height = h, convexity = 3)
+				import (file = "floor01.dxf", layer = "plate1");
 }
 
 module lev1Wall(h) {
@@ -98,9 +98,9 @@ module lev4WallA(h) {
 			difference() {
 			rotate([0,0,90]) translate([20,-10,0])
 				scale([0.01,0.01,0.01])
-					linear_extrude(height = h, convexity = 3 )
+					linear_extrude(height = h, convexity = 10 )
 						import (file = "floor3.dxf", layer = "walls4b");
-				roof(31,[0,0,15],10,25,100,31);
+				coolRoof(50,[0,0,15],8.7,25,10,5,100,32.3);
 			}
 }
 
@@ -126,13 +126,14 @@ module lev5Wall(h) {
 			}
 
 }
+
 lev0Plate(200);
 lev0Wall(2300);
-lev1Plate(200);
+translate([0,0,10]) lev1Plate(200);
 lev1Wall(2800);
 translate ([0,0,25]) lev0Plate(200);
 translate ([20,-10,27]) lev2Wall(2800);
-translate ([0,0,30]) lev1Plate(200);
+translate ([0,0,40]) lev1Plate(200);
 translate ([20,-10,42]) lev3Wall(3000);
 translate ([0,0,55]) lev0Plate(200);
 translate ([20,-10,70]) lev3Plate(200);
@@ -140,4 +141,13 @@ translate ([0,0,57]) lev4WallA(4500);
 translate ([20,-10,57]) lev4WallB(3000);
 translate ([123.7,-23.9,55]) circleRoof(20,30);
 translate ([20,-10,72]) lev5Wall(1500);
-translate ([101.1,-100.15,87]) circleRoof(18,27);
+translate ([101.1,-100.15,87]) circleRoof(13.5,27);
+translate ([0,0,23]) difference() {
+	translate ([-33.7,26.3,0]) rotate([0,0,-90]) ground();
+	translate ([0,0,-0.5]) union() {
+		lev0Plate(400);
+		lev1Plate(400);
+	}
+}
+rotate([0,0,-90]) coolRoof(2,[0,0,72],8.7,25,10,5,100,31);
+roof(2,[40,-100,87],5,25,83.7,100);
