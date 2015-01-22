@@ -1,4 +1,5 @@
 include <constants.scad>
+use <roof.scad>
 
 module ugPerimeter() {
 	polygon(
@@ -86,6 +87,45 @@ module lev3Wall(h) {
 				}
 }
 
+module lev3Plate(h) {
+	color([1,0.5,0.5]) scale([0.01,0.01,0.01]) linear_extrude(height = h)
+	   import (file = "floor02.dxf", layer = "plate3");
+}
+
+module lev4WallA(h) {
+	color([0,0.5,1])
+		rotate([0,0,-90])
+			difference() {
+			rotate([0,0,90]) translate([20,-10,0])
+				scale([0.01,0.01,0.01])
+					linear_extrude(height = h, convexity = 3 )
+						import (file = "floor3.dxf", layer = "walls4b");
+				roof(31,[0,0,15],10,25,100,31);
+			}
+}
+
+module lev4WallB(h) {
+	color([0,0.5,1])
+		scale([0.01,0.01,0.01])
+			difference() {
+				linear_extrude(height = h, convexity = 3 )
+					import (file = "floor3.dxf", layer = "walls4a");
+				linear_extrude(height = 2000, convexity = 3 )
+					import (file = "floor3.dxf", layer = "doors4");
+			}
+}
+
+module lev5Wall(h) {
+	color([0,0.5,1])
+		scale([0.01,0.01,0.01])
+			difference() {
+				linear_extrude(height = h, convexity = 3 )
+					import (file = "floor3.dxf", layer = "walls5a");
+				linear_extrude(height = 2000, convexity = 3 )
+					import (file = "floor3.dxf", layer = "doors5");
+			}
+
+}
 lev0Plate(200);
 lev0Wall(2300);
 lev1Plate(200);
@@ -94,12 +134,10 @@ translate ([0,0,25]) lev0Plate(200);
 translate ([20,-10,27]) lev2Wall(2800);
 translate ([0,0,30]) lev1Plate(200);
 translate ([20,-10,42]) lev3Wall(3000);
-
-//scale([0.01,0.01,0.01]) linear_extrude(height = 3000)
-   //import (file = "perimeter.dxf", layer = "mainEnter");
-/*scale([0.01,0.01,0.01]) difference() {
-	 linear_extrude(height = 3000)
-	   import (file = "perimeter.dxf", layer = "grWall");
-	translate ([0,0,500]) color([0.5,0.5,0.5]) linear_extrude(height = 2000, convexity = 3)
-	    import (file = "perimeter.dxf", layer = "grWindows");
-}*/
+translate ([0,0,55]) lev0Plate(200);
+translate ([20,-10,70]) lev3Plate(200);
+translate ([0,0,57]) lev4WallA(4500);
+translate ([20,-10,57]) lev4WallB(3000);
+translate ([123.7,-23.9,55]) circleRoof(20,30);
+translate ([20,-10,72]) lev5Wall(1500);
+translate ([101.1,-100.15,87]) circleRoof(18,27);

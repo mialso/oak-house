@@ -69,5 +69,11 @@ module highRoof(thick,start,out,height,sizeX,sizeY) {
 	/**/translate([start[0]+sizeX/2,start[1]+sizeY/2]) rotate([0,0,90]) roof(thick,[-sizeY/2,-sizeX/2,start[2]],out,height,sizeY,sizeX);
 }
 
+module circleRoof(h,radius) {
+	linear_extrude(height = h, convexity = 10, scale=0)
+		circle(r=radius, $fn = 8);
+}
+
+//circleRoof(30,25);
 roof(2,[-50,-60,0],5,25,100,40);
-translate ([0,30,0]) rotate([0,0,90]) roof(2,[-50,-50,15],5,25,100,80);
+translate ([0,30,0]) rotate([0,0,90]) roof(2,[-50,-50,15],5,25,80,100);
