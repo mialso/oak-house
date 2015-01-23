@@ -103,7 +103,7 @@ module lev4WallA(h) {
 				scale([0.01,0.01,0.01])
 					rotate([0,0,90]) translate([2000,-1000,1000]) linear_extrude(height = 1500, convexity = 10 )
 						import (file = "floor3.dxf", layer = "windows4a");
-				coolRoof(50,[0,0,15],8.7,30,10,5,100,32.3);
+				coolRoof(50,[0,0,15],8.7,30,10,5,100,40);
 			}
 }
 
@@ -122,12 +122,16 @@ module lev5Wall(h) {
 	color([0,0.5,1])
 		scale([0.01,0.01,0.01])
 			difference() {
+				union() {
 				linear_extrude(height = h, convexity = 3 )
-					import (file = "floor3.dxf", layer = "walls5a");
-				linear_extrude(height = 2000, convexity = 3 )
-					import (file = "floor3.dxf", layer = "doors5");
+						import (file = "floor02.dxf", layer = "walls3");
+					translate([0,0,1500]) linear_extrude(height = h, convexity = 3 )
+						import (file = "floor3.dxf", layer = "walls5a");
+					
+				}
+				translate([0,0,1000]) linear_extrude(height = 1500, convexity = 3 )
+						import (file = "floor3.dxf", layer = "doors5");
 			}
-
 }
 
 lev0Plate(200);
@@ -143,7 +147,12 @@ translate ([20,-10,70]) lev3Plate(200);
 translate ([0,0,57]) lev4WallA(4500);
 translate ([20,-10,57]) lev4WallB(3000);
 translate ([123.7,-23.9,55]) circleRoof(20,30);
-translate ([20,-10,72]) lev5Wall(1500);
+difference () {
+	translate ([20,-10,72]) lev5Wall(1500);
+	coolRoof2(20,[41.85,-100,87],6.85,25,10,5,80,50);
+	translate([121.85,0,0]) rotate([0,0,180]) coolRoof2(20,[0,0,87],6.85,25,10,5,80,50);
+}
+
 translate ([101.1,-100.15,87]) circleRoof(13.5,27);
 translate ([0,0,23]) difference() {
 	translate ([-33.7,26.3,0]) rotate([0,0,-90]) ground();
@@ -152,5 +161,6 @@ translate ([0,0,23]) difference() {
 		lev1Plate(400);
 	}
 }
-rotate([0,0,-90]) coolRoof(2,[0,0,72],8.7,30,10,5,100,31);
-//roof(2,[40,-100,87],5,25,83.7,100);
+rotate([0,0,-90]) coolRoof2(2,[0,0,72],6.85,30,10,5,100,40);
+coolRoof2(2,[41.85,-100,87],6.85,25,10,5,80,50);
+translate([121.85,0,0]) rotate([0,0,180]) coolRoof2(2,[0,0,87],6.85,25,10,5,80,50);
