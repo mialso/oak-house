@@ -100,7 +100,10 @@ module lev4WallA(h) {
 				scale([0.01,0.01,0.01])
 					linear_extrude(height = h, convexity = 10 )
 						import (file = "floor3.dxf", layer = "walls4b");
-				coolRoof(50,[0,0,15],8.7,25,10,5,100,32.3);
+				scale([0.01,0.01,0.01])
+					rotate([0,0,90]) translate([2000,-1000,1000]) linear_extrude(height = 1500, convexity = 10 )
+						import (file = "floor3.dxf", layer = "windows4a");
+				coolRoof(50,[0,0,15],8.7,30,10,5,100,32.3);
 			}
 }
 
@@ -149,5 +152,5 @@ translate ([0,0,23]) difference() {
 		lev1Plate(400);
 	}
 }
-rotate([0,0,-90]) coolRoof(2,[0,0,72],8.7,25,10,5,100,31);
-roof(2,[40,-100,87],5,25,83.7,100);
+rotate([0,0,-90]) coolRoof(2,[0,0,72],8.7,30,10,5,100,31);
+//roof(2,[40,-100,87],5,25,83.7,100);
