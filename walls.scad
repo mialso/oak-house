@@ -22,6 +22,10 @@ module ugPerimeter() {
 }
 
 //linear_extrude(height = 15) ugPerimeter();
+module perimeter(thick) {
+	scale([0.01,0.01,0.01]) linear_extrude(height = thick, convexity = 3 )
+	   import (file = "floor01.dxf", layer = "perimeter");
+}
 module lev0Plate(h) {
 	color([0.5,0.5,0.5]) scale([0.01,0.01,0.01]) linear_extrude(height = h, convexity = 3 )
 	   import (file = "floor01.dxf", layer = "plate0");
@@ -30,13 +34,12 @@ module lev0Plate(h) {
 module lev0Wall(h) {
 	color([0.5,0.5,0.7])
 		scale([0.01,0.01,0.01])
-			translate([0,0,200])
-				difference() {
-					linear_extrude(height = h, convexity = 3 )
-						import (file = "floor01.dxf", layer = "walls0");
-					linear_extrude(height = h-300, convexity = 3)
-						import (file = "floor01.dxf", layer = "doors0");
-				}
+			difference() {
+				linear_extrude(height = h, convexity = 3 )
+					import (file = "floor01.dxf", layer = "walls0");
+				linear_extrude(height = h-300, convexity = 3)
+					import (file = "floor01.dxf", layer = "doors0");
+			}
 }
 
 module lev1Plate(h) {
@@ -49,15 +52,14 @@ module lev1Plate(h) {
 module lev1Wall(h) {
 	color([0.5,0.5,1])
 		scale([0.01,0.01,0.01])
-			translate([0,0,1200])
-				difference() {
-					linear_extrude(height = h, convexity = 3 )
-						import (file = "floor01.dxf", layer = "walls1");
-					translate([0,0,-10]) linear_extrude(height = h-300, convexity = 3 )
-						import (file = "floor01.dxf", layer = "doors1");
-					translate([0,0,1600]) linear_extrude(height = 1000, convexity = 3)
-						import (file = "floor01.dxf", layer = "windows1");
-				}
+			difference() {
+				linear_extrude(height = h, convexity = 3 )
+					import (file = "floor01.dxf", layer = "walls1");
+				translate([0,0,-10]) linear_extrude(height = h-300, convexity = 10 )
+					import (file = "floor01.dxf", layer = "doors1");
+				translate([0,0,1600]) linear_extrude(height = 1000, convexity = 10)
+					import (file = "floor01.dxf", layer = "windows1");
+			}
 }
 module lev2Wall(h) {
 	color([0.5,1,1])
@@ -131,26 +133,23 @@ module lev5Wall(h) {
 }
 
 lev0Plate(200);
-lev0Wall(2300);
-translate([0,0,10]) lev1Plate(200);
-lev1Wall(2800);
+lev0Wall(2700);
+translate([0,0,12]) lev1Plate(200);
+translate([0,0,12]) lev1Wall(3000);
 translate ([0,0,25]) lev0Plate(200);
-translate ([20,-10,27]) lev2Wall(2800);
+translate ([20,-10,27]) lev2Wall(3000);
 translate ([0,0,40]) lev1Plate(200);
 translate ([20,-10,42]) lev3Wall(3000);
 translate ([0,0,55]) lev0Plate(200);
 translate ([20,-10,70]) lev3Plate(200);
 translate ([0,0,57]) lev4WallA(4500);
 translate ([20,-10,57]) lev4WallB(3000);
-translate ([123.7,-23.9,55]) circleRoof(20,30);
-translate ([20,-10,72]) lev5Wall(1500);
-translate ([101.1,-100.15,87]) circleRoof(13.5,27);
+//translate ([123.7,-23.9,55]) circleRoof(20,30);
+//translate ([20,-10,72]) lev5Wall(1500);
+//translate ([101.1,-100.15,87]) circleRoof(13.5,27);
 translate ([0,0,23]) difference() {
 	translate ([-33.7,26.3,0]) rotate([0,0,-90]) ground();
-	translate ([0,0,-0.5]) union() {
-		lev0Plate(400);
-		lev1Plate(400);
-	}
+	translate ([0,0,-0.5]) perimeter(3100);
 }
-rotate([0,0,-90]) coolRoof(2,[0,0,72],8.7,30,10,5,100,31);
+//rotate([0,0,-90]) coolRoof(2,[0,0,72],8.7,30,10,5,100,31);
 //roof(2,[40,-100,87],5,25,83.7,100);

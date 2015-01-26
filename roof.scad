@@ -112,6 +112,43 @@ module circleRoof(h,radius) {
 		circle(r=radius, $fn = 8);
 }
 
+module baseRoof(thick,k,width,long) {
+	linear_extrude(height = long, convexity = 10)
+		polygon(
+			points = [
+				[0,0],[0,thick],[width/2,(thick+k*width/2)],[width,thick],[width,0]
+			],
+			paths = [
+				[0,1,2,3,4]
+			],
+			convexity = 5
+		);
+}
+
+module viewRoof(thick,k,width,long) {
+	difference () {
+		baseRoof(thick,k,width,long);
+		translate([0,-thick,-1]) scale([1,1,1.5]) baseRoof(thick,k,width,long);
+	}
+}
+//garageRoof
+difference() {
+	translate([0,40,0]) rotate([90,0,0]) viewRoof(2,(1.5/2),100,80);
+	translate([0,0,15]) rotate([90,0,90]) baseRoof(2,(1.5/2),80,100);
+	translate([-1,4,-1]) cube([102,60,16.01]);
+}
+//center Roof
+difference() {
+	translate([0,0,15]) rotate([90,0,90]) viewRoof(2,(1.5/2),80,100);
+	translate([0,40,0]) rotate([90,0,0]) baseRoof(2,(1.5/2),100,80);
+	translate([50-13.33,81,14]) rotate([90,0,0]) scale([1,1,1.1]) baseRoof(13,(1.5/2),26.66,40);
+}
+
+difference() {
+	translate([50-13.33,80,25]) rotate([90,0,0]) viewRoof(2,(1.5/2),26.66,40);
+	translate([0,0,15]) rotate([90,0,90]) baseRoof(2,(1.5/2),80,100);
+}
+
 //circleRoof(30,25);
 //roof(2,[-50,-60,0],5,25,100,40);
 //translate ([0,30,0]) rotate([0,0,90]) roof(2,[-50,-50,15],5,25,80,100);
