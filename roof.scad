@@ -133,18 +133,18 @@ module viewRoof(thick,k,width,long) {
 }
 module fullRoof() {
 	difference() {
-		translate([0,40,0]) rotate([90,0,0]) viewRoof(2,(1.5/2),100,80);
-		translate([0,0,15]) rotate([90,0,90]) baseRoof(2,(1.5/2),80,100);
-		translate([-1,4,-1]) cube([102,60,16.01]);
+		translate([0,40,0]) rotate([90,0,0]) viewRoof(2,(1.5/2),107.4,80);
+		translate([0,3.7,15]) rotate([90,0,90]) baseRoof(0,(1.5/2),83.7,108);
+		translate([-1,4,-1]) cube([109,60,16.01]);
 	}
 	difference() {
-		translate([0,0,15]) rotate([90,0,90]) viewRoof(2,(1.5/2),80,100);
-		translate([0,40,0]) rotate([90,0,0]) baseRoof(2,(1.5/2),100,80);
-		translate([50-13.33,81,14]) rotate([90,0,0]) scale([1,1,1.1]) baseRoof(13,(1.5/2),26.66,40);
+		translate([0,3.7,15]) rotate([90,0,90]) viewRoof(2,(1.5/2),83.7,107.4);
+		translate([0,40,0]) rotate([90,0,0]) baseRoof(0,(1.5/2),107.4,80);
+		translate([50-13.33+3.7,87.4+1,14-2]) rotate([90,0,0]) scale([1,1,1.1]) baseRoof(13,(1.5/2),26.66,40);
 	}
 	difference() {
-		translate([50-13.33,80,25]) rotate([90,0,0]) viewRoof(2,(1.5/2),26.66,40);
-		translate([0,0,15]) rotate([90,0,90]) baseRoof(2,(1.5/2),80,100);
+		translate([50-13.33+3.7,87.4,25]) rotate([90,0,0]) viewRoof(2,(1.5/2),26.66,40);
+		translate([0,3.7,15]) rotate([90,0,90]) baseRoof(0,(1.5/2),83.7,107.4);
 	}
 
 }
