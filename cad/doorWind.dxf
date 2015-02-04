@@ -101,7 +101,7 @@ Standard
   9
 $CLAYER
   8
-doors1
+doors4
   9
 $CELTYPE
   6
@@ -509,11 +509,11 @@ $TDUUPDATE
   9
 $TDINDWG
  40
-0.0121309838
+0.0121318981
   9
 $TDUSRTIMER
  40
-0.0121309606
+0.0121318750
   9
 $USRTIMER
  70
@@ -553,7 +553,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-5C8
+5E0
   9
 $SURFTAB1
  70
@@ -937,7 +937,7 @@ $FINGERPRINTGUID
   9
 $VERSIONGUID
   2
-{43C33E04-8CED-4042-9854-685FFCAAB119}
+{56AC20DA-EA54-4D4B-AEDE-5D1342A9B882}
   9
 $EXTNAMES
 290
@@ -1975,7 +1975,7 @@ LAYER
 100
 AcDbSymbolTable
  70
-    20
+    24
   0
 LAYER
   5
@@ -2023,7 +2023,7 @@ doors1
  70
      0
  62
-     1
+    -1
   6
 Continuous
 370
@@ -2049,7 +2049,7 @@ doors0
  70
      0
  62
-     1
+    -1
   6
 Continuous
 370
@@ -2101,7 +2101,7 @@ walls00
  70
      0
  62
-    40
+   -40
 420
  16307770
   6
@@ -2230,6 +2230,110 @@ AcDbSymbolTableRecord
 AcDbLayerTableRecord
   2
 windows33
+ 70
+     0
+ 62
+    -7
+  6
+Continuous
+370
+     0
+390
+F
+347
+98
+348
+0
+  0
+LAYER
+  5
+5C8
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+doors3
+ 70
+     0
+ 62
+    -7
+  6
+Continuous
+370
+     0
+390
+F
+347
+98
+348
+0
+  0
+LAYER
+  5
+5CD
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+doors4
+ 70
+     0
+ 62
+     7
+  6
+Continuous
+370
+     0
+390
+F
+347
+98
+348
+0
+  0
+LAYER
+  5
+5D6
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+windows21
+ 70
+     0
+ 62
+    -7
+  6
+Continuous
+370
+     0
+390
+F
+347
+98
+348
+0
+  0
+LAYER
+  5
+5D7
+330
+2
+100
+AcDbSymbolTableRecord
+100
+AcDbLayerTableRecord
+  2
+doors5
  70
      0
  62
@@ -3166,110 +3270,6 @@ AcDbPolyline
 3799.999999999999
  20
 -4235.000000000003
-  0
-LWPOLYLINE
-  5
-3B0
-330
-1F
-100
-AcDbEntity
-  8
-doors0
-100
-AcDbPolyline
- 90
-        2
- 70
-     0
- 43
-0.0
- 10
-4420.0
- 20
--3985.000000000002
- 10
-4419.999999999999
- 20
--4235.000000000003
-  0
-LWPOLYLINE
-  5
-3B1
-330
-1F
-100
-AcDbEntity
-  8
-doors0
-100
-AcDbPolyline
- 90
-        2
- 70
-     0
- 43
-0.0
- 10
-4419.999999999999
- 20
--4235.000000000003
- 10
-5720.000000000001
- 20
--4235.0
-  0
-LWPOLYLINE
-  5
-3B2
-330
-1F
-100
-AcDbEntity
-  8
-doors0
-100
-AcDbPolyline
- 90
-        2
- 70
-     0
- 43
-0.0
- 10
-4420.0
- 20
--3985.000000000002
- 10
-5720.000000000001
- 20
--3985.0
-  0
-LWPOLYLINE
-  5
-3B3
-330
-1F
-100
-AcDbEntity
-  8
-doors0
-100
-AcDbPolyline
- 90
-        2
- 70
-     0
- 43
-0.0
- 10
-5720.000000000002
- 20
--3985.000000000004
- 10
-5720.000000000001
- 20
--4235.000000000004
   0
 LWPOLYLINE
   5
@@ -5813,7 +5813,7 @@ LINE
 100
 AcDbEntity
   8
-windows2
+windows21
 100
 AcDbLine
  10
@@ -5837,7 +5837,7 @@ LINE
 100
 AcDbEntity
   8
-windows2
+windows21
 100
 AcDbLine
  10
@@ -5861,7 +5861,7 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-windows2
+windows21
 100
 AcDbPolyline
  90
@@ -5887,7 +5887,7 @@ LWPOLYLINE
 100
 AcDbEntity
   8
-windows2
+windows21
 100
 AcDbPolyline
  90
@@ -6096,6 +6096,204 @@ AcDbLine
 -7205.000000000002
  31
 0.0
+  0
+LWPOLYLINE
+  5
+5C4
+330
+1F
+100
+AcDbEntity
+  8
+doors3
+100
+AcDbPolyline
+ 90
+        2
+ 70
+     0
+ 43
+0.0
+ 10
+4220.000000000001
+ 20
+-3985.000000000003
+ 10
+4220.0
+ 20
+-4235.000000000004
+  0
+LWPOLYLINE
+  5
+5C5
+330
+1F
+100
+AcDbEntity
+  8
+doors3
+100
+AcDbPolyline
+ 90
+        2
+ 70
+     0
+ 43
+0.0
+ 10
+4220.0
+ 20
+-4235.000000000004
+ 10
+7780.000000000002
+ 20
+-4235.000000000001
+  0
+LWPOLYLINE
+  5
+5C6
+330
+1F
+100
+AcDbEntity
+  8
+doors3
+100
+AcDbPolyline
+ 90
+        2
+ 70
+     0
+ 43
+0.0
+ 10
+4220.000000000001
+ 20
+-3985.000000000003
+ 10
+7780.000000000002
+ 20
+-3985.000000000001
+  0
+LWPOLYLINE
+  5
+5C7
+330
+1F
+100
+AcDbEntity
+  8
+doors3
+100
+AcDbPolyline
+ 90
+        2
+ 70
+     0
+ 43
+0.0
+ 10
+7780.000000000002
+ 20
+-3985.000000000005
+ 10
+7780.000000000002
+ 20
+-4235.000000000005
+  0
+LWPOLYLINE
+  5
+5D9
+330
+1F
+100
+AcDbEntity
+  8
+doors5
+100
+AcDbPolyline
+ 90
+        2
+ 70
+     0
+ 43
+0.0
+ 10
+6779.999999999998
+ 20
+-9985.000000000002
+ 10
+5479.999999999998
+ 20
+-9985.000000000027
+  0
+LWPOLYLINE
+  5
+5DA
+330
+1F
+100
+AcDbEntity
+  8
+doors5
+100
+AcDbPolyline
+ 90
+        4
+ 70
+     0
+ 43
+0.0
+ 10
+5479.999999999997
+ 20
+-9985.000000000027
+ 10
+5479.999999999995
+ 20
+-10385.00000000002
+ 10
+6779.999999999994
+ 20
+-10385.00000000002
+ 10
+6779.999999999998
+ 20
+-9985.0
+  0
+LWPOLYLINE
+  5
+5DB
+330
+1F
+100
+AcDbEntity
+  8
+doors4
+100
+AcDbPolyline
+ 90
+        4
+ 70
+     1
+ 43
+0.0
+ 10
+4219.999999999997
+ 20
+-7450.000000000001
+ 10
+4219.999999999997
+ 20
+-7200.000000000001
+ 10
+7780.0
+ 20
+-7200.000000000001
+ 10
+7780.0
+ 20
+-7450.000000000001
   0
 VIEWPORT
   5
@@ -6421,7 +6619,7 @@ ACAD_VISUALSTYLE
   3
 ACDB_RECOMPOSE_DATA
 350
-5C7
+5DF
   3
 AcDbVariableDictionary
 350
@@ -7051,7 +7249,7 @@ X-Ray
   0
 XRECORD
   5
-5C7
+5DF
 102
 {ACAD_REACTORS
 330
@@ -15731,7 +15929,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-5C6
+5DE
   0
 DICTIONARY
   5
@@ -15823,7 +16021,7 @@ AcDbDictionary
   3
 ACAD_XREC_ROUNDTRIP
 360
-5C5
+5DD
   0
 DICTIONARY
   5
@@ -15839,11 +16037,11 @@ AcDbDictionary
   3
 ACAD_ROUNDTRIP_2008_TABLESTYLE_CELLSTYLEMAP
 360
-5C4
+5DC
   0
 XRECORD
   5
-5C6
+5DE
 102
 {ACAD_REACTORS
 330
@@ -16283,7 +16481,7 @@ AcDbXrecord
   0
 XRECORD
   5
-5C5
+5DD
 102
 {ACAD_REACTORS
 330
@@ -16307,7 +16505,7 @@ FLAGS
   0
 CELLSTYLEMAP
   5
-5C4
+5DC
 102
 {ACAD_REACTORS
 330
