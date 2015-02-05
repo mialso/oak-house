@@ -2,7 +2,7 @@ include <../constants.scad>
 
 module fundPlate(h) {
 	scale([0.01,0.01,0.01]) linear_extrude(height = h, convexity = 3 )
-	   import (file = "../cad/plates.dxf", layer = "plateGr");
+	   import (file = "../cad/floor0.dxf", layer = "plateF");
 }
 
 module verandaPlate(h) {

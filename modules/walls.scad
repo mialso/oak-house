@@ -2,10 +2,26 @@ include <../constants.scad>
 
 use <doorWind.scad>
 
-module walls1(h) {
+module walls01(h) {
 	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/walls.dxf", layer = "walls1");
+					import (file = "../cad/floor0.dxf", layer = "walls01");
 }
+
+module walls02(h) {
+	linear_extrude(height = h, convexity = 3)
+					import (file = "../cad/floor0.dxf", layer = "walls02");
+}
+
+module walls03(h) {
+	linear_extrude(height = h, convexity = 3)
+					import (file = "../cad/floor0.dxf", layer = "walls03");
+}
+
+module walls04(h) {
+	linear_extrude(height = h, convexity = 3)
+					import (file = "../cad/floor0.dxf", layer = "walls04");
+}
+
 module walls11(h) {
 	linear_extrude(height = h, convexity = 3)
 					import (file = "../cad/walls.dxf", layer = "walls11");
@@ -32,18 +48,18 @@ module lev0Walls(h) {
 		rotate([0,0,90]) scale([0.01,0.01,0.01])
 			difference() {
 				union() {
-					walls1(h-1500);
-					walls11(h-1500);
-					walls2(h);
-					walls4(h);
+					walls01(h-1500);
+					walls02(h-1500);
+					walls03(h);
+					walls04(h);
 				}
-				translate([0,0,plateThick*100]) doors0();
-				translate([0,0,(groundFlHeight-floorHeight/2+plateThick)*100]) doors05();
+				translate([0,0,plateThick*100]) doors01();
+				translate([0,0,(groundFlHeight-floorHeight/2+plateThick)*100]) doors02();
 				//translate([0,0,(plateThick)*100]) doors3();
 				//translate([0,0,(groundFlHeight+plateThick)*100]) doors2();
 				//translate([0,0,(groundFlHeight+plateThick)*100]) doors3();
-				translate([0,0,(groundFlHeight+plateThick)*100+200]) windows0(1000);
-				translate([0,0,(groundFlHeight+plateThick)*100+200]) windows1();
+				translate([0,0,(groundFlHeight+plateThick)*100+200]) windows01();
+				//translate([0,0,(groundFlHeight+plateThick)*100+200]) windows1();
 			};
 }
 
