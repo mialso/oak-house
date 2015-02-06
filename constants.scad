@@ -16,6 +16,7 @@ lev1height = 1;
 lev15height = 16;
 lev2height = 31;
 lev25height = 46;
+lev3height = 61;
 
 fundamentLow = lev1height-groundFlHeight-plateThick-fundamentThick;
 

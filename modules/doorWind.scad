@@ -15,57 +15,58 @@ module windows01() {
 					import (file = "../cad/floor0.dxf", layer = "windows01");
 }
 
-module doors0() {
+module doors10() {
 	linear_extrude(height = doorsHeight*100, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "doors0");
+					import (file = "../cad/floor1.dxf", layer = "doors10");
 }
 
-module doors05() {
+module doors11() {
 	linear_extrude(height = doorsHeight*100, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "doors1");
+					import (file = "../cad/floor1.dxf", layer = "doors11");
 }
 
-module doors2() {
+module doors12() {
 	linear_extrude(height = doorsHeight*100, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "doors2");
+					import (file = "../cad/floor1.dxf", layer = "doors12");
 }
 
-module doors3() {
+module doors13() {
 	linear_extrude(height = doorsHeight*100, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "doors3");
-}
-
-module doors4() {
-	linear_extrude(height = doorsHeight*100, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "doors4");
-}
-
-module doors5() {
-	linear_extrude(height = doorsHeight*100, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "doors5");
-}
-
-module windows0(h) {
-	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "windows3");
+					import (file = "../cad/floor1.dxf", layer = "doors13");
 }
 
 module windows1() {
-	linear_extrude(height = 1000, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "windows001");
-}
-
-module windows2() {
 	linear_extrude(height = 1500, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "windows2");
-	translate([0,0,1000]) linear_extrude(height = 500, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "windows21");
+					import (file = "../cad/floor1.dxf", layer = "windows1");
 }
 
-module windows3() {
+module windows10() {
+	linear_extrude(height = 500, convexity = 3)
+					import (file = "../cad/floor1.dxf", layer = "windows10");
+}
+
+module windows11() {
 	linear_extrude(height = 1500, convexity = 3)
-					import (file = "../cad/doorWind.dxf", layer = "windows1");
+					import (file = "../cad/floor1.dxf", layer = "windows11");
 }
 
-/*translate([borderOut+outWallThick,borderOut+outWallThick,fundamentLow+fundamentThick])
-		rotate([0,0,90]) scale([0.01,0.01,0.01]) doors0();*/
+module windows12(h) {
+	linear_extrude(height = h, convexity = 3)
+					import (file = "../cad/floor1.dxf", layer = "windows12");
+}
+
+module doors21() {
+	linear_extrude(height = doorsHeight*100, convexity = 3)
+					import (file = "../cad/floor2.dxf", layer = "doors21");
+}
+
+module doors20() {
+	linear_extrude(height = doorsHeight*100, convexity = 3)
+					import (file = "../cad/floor2.dxf", layer = "doors20");
+}
+
+module windows20() {
+	linear_extrude(height = 1500, convexity = 3)
+					import (file = "../cad/floor2.dxf", layer = "windows1");
+}
+

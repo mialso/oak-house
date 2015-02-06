@@ -24,16 +24,32 @@ module walls04(h) {
 
 module walls11(h) {
 	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/walls.dxf", layer = "walls11");
+					import (file = "../cad/floor1.dxf", layer = "walls11");
 }
-module walls2(h) {
+
+module walls12(h) {
 	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/walls.dxf", layer = "walls2");
+					import (file = "../cad/floor1.dxf", layer = "walls12");
 }
-module walls3(h) {
+
+module walls13(h) {
 	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/walls.dxf", layer = "walls3");
+					import (file = "../cad/floor1.dxf", layer = "walls13");
 }
+
+module walls21(h) {
+	intersection() {
+		scale([0.01,0.01,0.01]) linear_extrude(height = h, convexity = 3)
+						import (file = "../cad/floor2.dxf", layer = "walls21");
+		translate([40,3.7,0]) rotate([90,0,0]) baseRoof(0,(1.5/2),83.7,107.4);
+	}
+}
+
+module walls22(h) {
+	linear_extrude(height = h, convexity = 3)
+					import (file = "../cad/floor2.dxf", layer = "walls22");
+}
+
 module walls4(h) {
 	linear_extrude(height = h, convexity = 3)
 					import (file = "../cad/walls.dxf", layer = "walls4");
@@ -59,7 +75,6 @@ module lev0Walls(h) {
 				//translate([0,0,(groundFlHeight+plateThick)*100]) doors2();
 				//translate([0,0,(groundFlHeight+plateThick)*100]) doors3();
 				translate([0,0,(groundFlHeight+plateThick)*100+200]) windows01();
-				//translate([0,0,(groundFlHeight+plateThick)*100+200]) windows1();
 			};
 }
 
@@ -68,21 +83,21 @@ module lev1Walls(h) {
 		rotate([0,0,90]) scale([0.01,0.01,0.01])
 			difference() {
 				union() {
-					walls1(h);
+					walls01(h);
+					walls02(h);
 					walls11(h);
-					walls5(h);
-					translate([0,0,1500]) walls2(h);
-					translate([0,0,1500]) walls3(h);
+					translate([0,0,1500]) walls12(h);
+					translate([0,0,1500]) walls13(h);
 				}
-				translate([0,0,0]) doors0();
-				//translate([0,0,(groundFlHeight-floorHeight/2+plateThick)*100]) doors05();
-				//translate([0,0,(plateThick)*100]) doors3();
-				translate([0,0,0]) doors2();
-				translate([0,0,floorHeight*100/2]) doors4();
-				translate([0,0,floorHeight*100/2]) doors5();
-				translate([0,0,1500+400]) windows0(2000);
-				translate([0,0,1000]) windows2();
-				translate([0,0,1000]) windows3();
+				doors10();
+				doors11();
+				doors12();
+				doors13();
+				translate([0,0,floorHeight*100/2]) doors12();
+				translate([0,0,1500+400]) windows12(2000);
+				translate([0,0,1000]) windows11();
+				translate([0,0,1000]) windows1();
+				translate([0,0,2000]) windows10();
 			};
 }
 
@@ -91,24 +106,20 @@ module lev2Walls(h) {
 		rotate([0,0,90]) scale([0.01,0.01,0.01])
 			difference() {
 				union() {
-					walls1(h);
-					walls11(h);
-					//walls5(h);
-					translate([0,0,1500]) walls2(h-1500);
-					translate([0,0,1500]) walls3(h-1500);
+					//walls21(h);
+					walls02(h);
+					translate([0,0,1500]) walls12(h-1500);
+					translate([0,0,1500]) walls13(h-1500);
 				}
-				translate([0,0,0]) doors0();
-				//translate([0,0,(groundFlHeight-floorHeight/2+plateThick)*100]) doors05();
-				//translate([0,0,(plateThick)*100]) doors3();
-				//translate([0,0,0]) doors2();
-				translate([0,0,floorHeight*100/2]) doors4();
-				//translate([0,0,floorHeight*100/2]) doors5();
-				translate([0,0,1500+200]) windows0(1000);
-				translate([0,0,1000]) windows2();
-				translate([0,0,1000]) windows3();
+				doors20();
+				doors21();
+				translate([0,0,2000]) windows10();
+				translate([0,0,1000]) windows11();
+				translate([0,0,1000]) windows20();
+				translate([0,0,1500+200]) windows12(1000);
 			};
 }
-
+/*
 module groundWalls(h) {
 	translate([borderOut+outWallThick,borderOut+outWallThick,fundamentLow+fundamentThick])
 		rotate([0,0,90])
@@ -151,4 +162,4 @@ module verandaWalls(h) {
 				union() {
 					walls5(h);
 				};
-}
+}*/
