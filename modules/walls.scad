@@ -1,6 +1,7 @@
 include <../constants.scad>
 
 use <doorWind.scad>
+use <roof.scad>
 
 module walls01(h) {
 	linear_extrude(height = h, convexity = 3)
@@ -39,9 +40,9 @@ module walls13(h) {
 
 module walls21(h) {
 	intersection() {
-		scale([0.01,0.01,0.01]) linear_extrude(height = h, convexity = 3)
+		linear_extrude(height = h, convexity = 3)
 						import (file = "../cad/floor2.dxf", layer = "walls21");
-		translate([40,3.7,0]) rotate([90,0,0]) baseRoof(0,(1.5/2),83.7,107.4);
+		scale([100,100,100]) translate([40,3.7,0]) rotate([90,0,-90])  base2Roof(15,(1/2),107.4,43.7,20,30);
 	}
 }
 
@@ -50,13 +51,27 @@ module walls22(h) {
 					import (file = "../cad/floor2.dxf", layer = "walls22");
 }
 
-module walls4(h) {
-	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/walls.dxf", layer = "walls4");
+module walls30(h) {
+	intersection() {
+		linear_extrude(height = h, convexity = 3)
+						import (file = "../cad/floor3.dxf", layer = "walls30");
+		scale([100,100,100]) translate([40,3.7,0]) rotate([90,0,0])  base2Roof(0,(1.5/2),83.7,107.4,15,30);
+	}
 }
-module walls5(h) {
-	linear_extrude(height = h, convexity = 3)
-					import (file = "../cad/walls.dxf", layer = "walls5");
+
+module walls31(h) {
+	union() {
+		intersection() {
+			linear_extrude(height = h, convexity = 3)
+							import (file = "../cad/floor3.dxf", layer = "walls31");
+			scale([100,100,100]) translate([75,-(50+20),0]) rotate([90,0,90]) baseRoof(13,(1.5/2),40,50);
+		}
+		intersection() {
+			linear_extrude(height = h, convexity = 3)
+							import (file = "../cad/floor3.dxf", layer = "walls31");
+			scale([100,100,100]) translate([40,0,0]) rotate([90,0,0]) baseRoof(0,(1.5/2),83.7,107.4);
+		}
+	}
 }
 
 module lev0Walls(h) {
@@ -71,9 +86,6 @@ module lev0Walls(h) {
 				}
 				translate([0,0,plateThick*100]) doors01();
 				translate([0,0,(groundFlHeight-floorHeight/2+plateThick)*100]) doors02();
-				//translate([0,0,(plateThick)*100]) doors3();
-				//translate([0,0,(groundFlHeight+plateThick)*100]) doors2();
-				//translate([0,0,(groundFlHeight+plateThick)*100]) doors3();
 				translate([0,0,(groundFlHeight+plateThick)*100+200]) windows01();
 			};
 }
@@ -106,17 +118,34 @@ module lev2Walls(h) {
 		rotate([0,0,90]) scale([0.01,0.01,0.01])
 			difference() {
 				union() {
-					//walls21(h);
+					walls21(h*2);
 					walls02(h);
 					translate([0,0,1500]) walls12(h-1500);
-					translate([0,0,1500]) walls13(h-1500);
+					translate([0,0,1500]) walls22(h-1500);
 				}
 				doors20();
 				doors21();
+				translate([0,0,1500]) doors22();
 				translate([0,0,2000]) windows10();
 				translate([0,0,1000]) windows11();
 				translate([0,0,1000]) windows20();
+				translate([0,0,1000+1500]) windows21();
 				translate([0,0,1500+200]) windows12(1000);
+			};
+}
+module lev3Walls(h) {
+	translate([borderOut+outWallThick,borderOut+outWallThick,lev3height])
+		rotate([0,0,90]) scale([0.01,0.01,0.01])
+			difference() {
+				union() {
+					walls30(h);
+					walls31(h);
+				}
+				doors30();
+				doors31();
+				translate([0,0,-1500]) doors22();
+				translate([0,0,-500]) windows21();
+				translate([0,0,400]) windows30();
 			};
 }
 /*
@@ -163,3 +192,6 @@ module verandaWalls(h) {
 					walls5(h);
 				};
 }*/
+linear_extrude(height = 3000, convexity = 3)
+							import (file = "../cad/floor3.dxf", layer = "walls31");
+			scale([100,100,100]) translate([40,0,0]) rotate([90,0,0]) baseRoof(0,(1.5/2),83.7,107.4);

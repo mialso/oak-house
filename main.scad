@@ -17,10 +17,13 @@ color([1,0,1]) verandaPlate(200);
 lev15Plate(200);
 
 lev1Walls(floorHeight*100);
-//color([1,0,0]) mainWalls(3000);
 lev2Plate(200);
 lev25Plate(200);
 lev3Plate(200);
 lev2Walls(floorHeight*100);
+lev3Walls(3500);
 
-translate([30,70,46])fullRoof();
+render() translate([30,70,46])full2Roof();
+render() translate([137.4,133.7,61]) circleRoof(18,23.7);
+render() translate([30+3.7+23.9,30+7.4+120,lev2height]) rotate([0,0,90]) circleRoof(21,27.6);
+

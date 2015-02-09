@@ -65,8 +65,33 @@ module doors20() {
 					import (file = "../cad/floor2.dxf", layer = "doors20");
 }
 
+module doors22() {
+	linear_extrude(height = doorsHeight*100, convexity = 3)
+					import (file = "../cad/floor2.dxf", layer = "doors22");
+}
+
 module windows20() {
 	linear_extrude(height = 1500, convexity = 3)
 					import (file = "../cad/floor2.dxf", layer = "windows1");
+}
+
+module windows21() {
+	linear_extrude(height = 1500, convexity = 3)
+					import (file = "../cad/floor2.dxf", layer = "windows21");
+}
+
+module windows30() {
+	linear_extrude(height = 1200, convexity = 3)
+					import (file = "../cad/floor3.dxf", layer = "windows30");
+}
+
+module doors30() {
+	linear_extrude(height = doorsHeight*100, convexity = 3)
+					import (file = "../cad/floor3.dxf", layer = "doors30");
+}
+
+module doors31() {
+	linear_extrude(height = 2500, convexity = 3)
+					import (file = "../cad/floor3.dxf", layer = "doors31");
 }
 

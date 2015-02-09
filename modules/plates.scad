@@ -25,6 +25,16 @@ module plate04(h) {
 	   import (file = "../cad/floor0.dxf", layer = "plate04");
 }
 
+module plate21(h) {
+	linear_extrude(height = h, convexity = 3 )
+	   import (file = "../cad/floor2.dxf", layer = "plate21");
+}
+
+module plate22(h) {
+	linear_extrude(height = h, convexity = 3 )
+	   import (file = "../cad/floor2.dxf", layer = "plate22");
+}
+
 module fundPlate(h) {
 	scale([0.01,0.01,0.01]) linear_extrude(height = h, convexity = 3 )
 	   import (file = "../cad/floor0.dxf", layer = "plateF");
@@ -79,11 +89,14 @@ module lev2Plate(h) {
 module lev25Plate(h) {
 	translate([borderOut+outWallThick,borderOut+outWallThick,lev25height-h/100]) rotate([0,0,90])
 	scale([0.01,0.01,0.01]) 
-		plate04(h);
+		plate21(h);
 }
 
 module lev3Plate(h) {
 	translate([borderOut+outWallThick,borderOut+outWallThick,lev3height-h/100]) rotate([0,0,90])
-	scale([0.01,0.01,0.01]) 
-		plate02(h);
+	scale([0.01,0.01,0.01])
+		union() { 
+			plate02(h);
+			plate22(h);
+		}
 }
